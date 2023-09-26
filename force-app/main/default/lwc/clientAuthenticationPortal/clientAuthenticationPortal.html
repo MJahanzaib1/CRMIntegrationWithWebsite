@@ -1,0 +1,37 @@
+<template>
+    <div class="small-card">
+        <lightning-card vertical-align="start" horizontal-align="center">
+            <form onsubmit={save}>
+                <div class="container">
+                    <lightning-layout vertical-align="start" horizontal-align="center">
+                        <lightning-input type="text" required label="Client Id" value={clientId} onchange={storeClientId}></lightning-input>
+                    </lightning-layout>
+                    <lightning-layout vertical-align="start" horizontal-align="center">
+                        <lightning-input type="text" required label="Secret key" value={secretKey} onchange={storeSecretKey}></lightning-input>
+                    </lightning-layout>
+                    <lightning-layout vertical-align="start" horizontal-align="center">
+                        <lightning-input type="text" required label="Integration Verification Token" value={integrationVerificationToken} onchange={storeIntegrationVerificationToken}></lightning-input>
+                    </lightning-layout>
+                    <template lwc:if={edited}>
+                        <lightning-layout vertical-align="start" horizontal-align="center">
+                            <lightning-layout-item padding="around-small">
+                                <lightning-button id="CancelAssignment" label="Cancel" onclick={cancel}></lightning-button>
+                                <lightning-button id="SaveAssignment" label="Save" variant="brand" type="submit"></lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+                </div>
+            </form>
+        </lightning-card>    
+    </div>
+    <div class="small-card">
+        <lightning-card vertical-align="start" horizontal-align="center">
+            <div class="container" >
+                <lightning-layout vertical-align="start" horizontal-align="center">
+                    <lightning-textarea name="input1" label="Enter some text" ></lightning-textarea>
+                </lightning-layout>
+                
+            </div>
+        </lightning-card>
+    </div>
+</template>

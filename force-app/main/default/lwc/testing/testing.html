@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="ApexImperativeMethod" icon-name="custom:custom63">
+        <div >
+            <lightning-combobox label="Objects" 
+                                name="salesforceobjects"
+                                options={objectsList}
+                                onchange={salesforceObjectChange}></lightning-combobox>
+            
+        </div>
+        <template lwc:if = {isSelected}>
+            <lightning-combobox label="Fields" name="salesforcefields"
+            options={fieldsList}
+            onchange={salesforceFieldChange}></lightning-combobox>
+        </template>
+    </lightning-card>
+</template>

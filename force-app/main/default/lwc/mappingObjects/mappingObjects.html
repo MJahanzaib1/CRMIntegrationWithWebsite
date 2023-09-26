@@ -1,0 +1,66 @@
+<template>
+    <div class="page-container">
+        <lightning-card class="small-card">
+            <div class="container">
+                <div class="centered-content">
+                    <div class="object-horizontal-container">
+                        <div class="picklist-container">
+                            <lightning-combobox label="Salesforce" name="salesforce" value={salesforceValue}
+                                options={salesforceOptions} onchange={handleSalesforceChange}
+                                onfocus={handleObjectComboboxFocus} onblur={handleObjectComboboxBlur}></lightning-combobox>
+                        </div>
+                        <div class="picklist-container">
+                            <lightning-combobox label="One Vest" name="oneVest" value={oneVestValue}
+                                options={oneVestOptions} onchange={handleOneVestChange} onfocus={handleObjectComboboxFocus}
+                                onblur={handleObjectComboboxBlur}></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <template lwc:if={isObjectEdited}>
+                    <footer>
+                        <lightning-layout horizontal-align="center">
+                            <lightning-layout-item padding="around-small">
+                                <lightning-button class="custom-button" label="Match" variant="brand"
+                                    onclick={matchObject}></lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </footer>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+    
+    <template lwc:if={isObjectSelected}>
+        <div class="page-container">
+            <lightning-card class="small-card" label="Fields Matching">
+                <div class="container">
+                    <div class="centered-content">
+                        <div class="fields-horizontal-container">
+                            <div class="picklist-container">
+                                <lightning-combobox label={salesforceValue} name="salesforcefields"
+                                    value={salesforceFieldValue} options={salesforceObjectFields}
+                                    onchange={handleSalesforceFieldChange} onfocus={handleFieldComboboxFocus}
+                                    onblur={handleFieldComboboxBlur}></lightning-combobox>
+                            </div>
+                            <div class="picklist-container">
+                                <lightning-combobox label={oneVestValue} name="oneVestfields" value={oneVestfieldValue}
+                                    options={oneVestObjectFields} onchange={handleOneVestFieldChange}
+                                    onfocus={handleFieldComboboxFocus} onblur={handleFieldComboboxBlur}></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <template lwc:if={isFieldEdited}>
+                    <footer>
+                        <lightning-layout horizontal-align="center">
+                            <lightning-layout-item padding="around-small">
+                                <lightning-button class="custom-button" label="Match" variant="brand"
+                                    onclick={matchField}></lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </footer>
+                </template>
+            </lightning-card>
+        </div>    
+    </template>
+</template>
